@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optimized animations with GPU acceleration */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -20px, 0) rotate(180deg);
+  }
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translate3d(0, 0px, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0px, 0) scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* Rainbow holographic text animation */
+@keyframes rainbow-holographic {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) brightness(1.2) saturate(1.5);
+  }
+  25% {
+    background-position: 100% 50%;
+    filter: hue-rotate(90deg) brightness(1.4) saturate(1.8);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg) brightness(1.6) saturate(2);
+  }
+  75% {
+    background-position: 0% 50%;
+    filter: hue-rotate(270deg) brightness(1.4) saturate(1.8);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(360deg) brightness(1.2) saturate(1.5);
+  }
+}
+
+@keyframes holographic-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 60px rgba(255, 255, 0, 0.2);
+  }
+  33% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 255, 0, 0.3), 0 0 60px rgba(255, 0, 255, 0.2);
+  }
+  66% {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.5), 0 0 40px rgba(255, 0, 255, 0.3), 0 0 60px rgba(0, 255, 255, 0.2);
+  }
+}
+
+/* Holographic rainbow text class */
+.holographic-text {
+  background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-holographic 3s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.holographic-glow {
+  animation: holographic-glow 2s ease-in-out infinite;
+  border-radius: 15px;
+  padding: 15px 25px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Reduced animation complexity for better performance */
+.animate-bubble {
+  animation: bubble-float 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Optimized scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce GPU load */
+.animate-spin {
+  animation: spin 1s linear infinite;
+  will-change: transform;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: opacity;
+}
+
+/* Optimized glow effects */
+.glow-green {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Updated background image */
+.main-background {
+  background-image: url("https://i.postimg.cc/ydfhRnrJ/Roblox-Grow-a-Garden-Be-a-Better-Gardner-With-These-5-Tips.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #f0f9ff; /* Fallback color */
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Fallback for when image doesn't load */
+.main-background::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+  z-index: -1;
+}
+
+/* Ensure images load properly */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Full screen coverage */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
